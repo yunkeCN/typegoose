@@ -23,7 +23,7 @@ export interface GetModelForClassOptions {
 }
 
 export class Typegoose {
-  getModelForClass<T>(t: T, { existingMongoose, schemaOptions, existingConnection }: GetModelForClassOptions = {}) {
+  getModelForClass?<T>(t: T, { existingMongoose, schemaOptions, existingConnection }: GetModelForClassOptions = {}) {
     const name = this.constructor.name;
     if (!models[name]) {
       this.setModelForClass(t, { existingMongoose, schemaOptions, existingConnection });
@@ -32,7 +32,7 @@ export class Typegoose {
     return models[name] as ModelType<this> & T;
   }
 
-  setModelForClass<T>(t: T, { existingMongoose, schemaOptions, existingConnection }: GetModelForClassOptions = {}) {
+  setModelForClass?<T>(t: T, { existingMongoose, schemaOptions, existingConnection }: GetModelForClassOptions = {}) {
     const name = this.constructor.name;
 
     // get schema of current model
