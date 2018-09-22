@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 
 (mongoose as any).Promise = global.Promise;
 
-import { schema, models, methods, virtuals, hooks, plugins, constructors } from './data';
+import { constructors, hooks, methods, models, plugins, schema, virtuals } from './data';
 
 export * from './method';
 export * from './prop';
@@ -60,7 +60,7 @@ export class Typegoose {
     return models[name] as ModelType<this> & T;
   }
 
-  private buildSchema?<T>(t: T, name: string, schemaOptions, sch?: mongoose.Schema) {
+  private buildSchema? = <T>(t: T, name: string, schemaOptions, sch?: mongoose.Schema): mongoose.Schema => {
     const Schema = mongoose.Schema;
 
     if (!sch) {
