@@ -60,7 +60,7 @@ export class Typegoose {
     return models[name] as ModelType<this> & T;
   }
 
-  private buildSchema<T>(t: T, name: string, schemaOptions, sch?: mongoose.Schema) {
+  private buildSchema?<T>(t: T, name: string, schemaOptions, sch?: mongoose.Schema) {
     const Schema = mongoose.Schema;
 
     if (!sch) {
